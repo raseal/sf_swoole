@@ -15,13 +15,12 @@ RUN apk --update upgrade \
         zip \
         pdo_mysql
 
-# RUN pecl install xdebug
-RUN pecl install openswoole
+RUN pecl install xdebug
+#RUN pecl install openswoole
 
 RUN docker-php-ext-enable \
         opcache \
-        openswoole
-        # xdebug
+        xdebug
 
 ENV PHP_IDE_CONFIG 'serverName=DockerApp'
 
