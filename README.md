@@ -3,26 +3,16 @@ Run `make build` in order to install all application dependencies (you must have
 
 For more commands, type `make help`
 
-### Enabling `xDebug` in phpStorm
-1. Go to Preferences -> PHP and select PHP 8.0 version
+# Notes
+- Ignore the IDE warnings about "constant not found" at `apps/SymfonyClient/public/index.php`
+- In order to have this app working without closing, it should have a `supervisor` running on the background
+- In order to test the app:
+- ```shell
+# enter to the container
+make shell
 
-2. Click on `...` to create a CLI interpreter
-   ![step_1](docs/xdebug/step1.png)
-   
-3. Create the CLI interpreter by selecting the following parameters:
-- Type: Docker compose
-- Server: `Docker`
-- Configuration files: `./docker-compose.yml`
-- Service: `php_container`  
-  ![step_2](docs/xdebug/step2.png)
+# start listening requests
+php -d variables_order=EGPCS /app/apps/SymfonyClient/public/index.php
 
-4. Go to Preferences -> PHP -> Debug -> Servers to create a new one:
-- Name: `DockerApp`
-- Host: `localhost` (Port and Debugger should automagically be detected)
-- Make sure you check the `Use path mappings` options
-- Map the folders to the ones that belong to the Docker container
-    - **PROJECT_DIR**: should be mapped to `app`
-    - **src**: should be mapped to `app/src`
-      ![step_3](docs/xdebug/step3.png)
-
-
+# now go to http://localhost:9001 and you should hit the HelloController
+```

@@ -1,3 +1,10 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+index:
+  path: /
+  controller: SymfonyClient\Controller\HelloController
+
+hello:
+  path: /hello
+  controller: SymfonyClient\Controller\HelloController
