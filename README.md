@@ -7,7 +7,7 @@ For more commands, type `make help`
 - Ignore the IDE warnings about "constant not found" at `apps/SymfonyClient/public/index.php`
 - In order to have this app working without closing, it should have a `supervisor` running on the background
 - In order to test the app:
-- ```shell
+```shell
 # enter to the container
 make shell
 
